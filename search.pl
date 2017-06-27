@@ -1,7 +1,29 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 use strict;
 use warnings;
 use LWP;
+use IO::Socket::INET;
+use IO::Socket::SSL;
+use Getopt::Long;
+use Config;
+
+$SIG{'PIPE'} = 'IGNORE';    #Ignore broken pipe errors
+
+print <<EOTEXT;
+
+ ██████╗ █████╗ ███╗   ██╗ ██████╗███████╗██████╗     
+██╔════╝██╔══██╗████╗  ██║██╔════╝██╔════╝██╔══██╗    
+██║     ███████║██╔██╗ ██║██║     █████╗  ██████╔╝    
+██║     ██╔══██║██║╚██╗██║██║     ██╔══╝  ██╔══██╗    
+╚██████╗██║  ██║██║ ╚████║╚██████╗███████╗██║  ██║    
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝  ╚═╝    
+                                                   
+
+EOTEXT
+
+
+
+
 
 my $url="https://www.google.ps/search?q=php id= israel shop";
 
@@ -17,5 +39,4 @@ while ($response =~ m/((https?):\/\/([^"\>]*))/g) {
 	my $link = $1;
 	print "$link \n";
 }
-
 
